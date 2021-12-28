@@ -26,7 +26,7 @@ schedule.every().day.at("10:00").do(info)
 
 def scheduler():
     print("starting scheduler")
-    schedule.every(5).seconds.do(info)
+    schedule.every(1).day.do(info)
 
     while True:
         schedule.run_pending()
