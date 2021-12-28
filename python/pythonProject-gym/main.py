@@ -21,12 +21,10 @@ def info():
         create_cobro(result, "Gym", "pagos")
 
 
-schedule.every().day.at("10:00").do(info)
-
 
 def scheduler():
     print("starting scheduler")
-    schedule.every(1).day.do(info)
+    schedule.every(1).day.at("10:00").do(info)
 
     while True:
         schedule.run_pending()
