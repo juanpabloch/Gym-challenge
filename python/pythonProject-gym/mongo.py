@@ -2,7 +2,7 @@ from pymongo import MongoClient
 import key
 client = key.DB_CLIENT
 
-#funcion traer una lista de elementos de la base de datos
+
 def get_all(collection, document):
     obj_list = []
     client_db = MongoClient(client)
@@ -16,11 +16,11 @@ def get_all(collection, document):
     return obj_list
 
 
-def get_one(collection, document, id):
+def get_one(collection, document, socio_id):
     client_db = MongoClient(client)
     data_base = client_db[collection]
     db_document = data_base[document]
-    result = db_document.find_one({"_id": id})
+    result = db_document.find_one({"_id": socio_id})
     return result
 
 
@@ -31,8 +31,23 @@ def update_count(collection, document, socio):
     result = db_document.update_one({"_id": socio["_id"]}, {"$set": socio})
     return result
 
+
 def create_cobro(result, collection, document):
     client_db = MongoClient(client)
     data_base = client_db[collection]
     document = data_base[document]
     document.insert_one(result)
+
+
+def deactivate_socio(socio_id):
+    client_db = MongoClient(client)
+    data_base = client_db["Gym"]
+    db_document = data_base["socios"]
+    db_document.update_one({"_id": socio_id}, {"$set": {"active": False}})
+
+
+def realizar_pago(socio_id, update):
+    client_db = MongoClient(client)
+    data_base = client_db["Gym"]
+    db_document = data_base["socios"]
+    db_document.update_one({"_id": socio_id}, {"$set": update})

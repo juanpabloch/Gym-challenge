@@ -1,8 +1,8 @@
 from pymongo import MongoClient
 from datetime import datetime
 from datetime import timedelta
-
-client = 'mongodb+srv://juanpabloch:asd567jkl123@cluster0.mxijk.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+import key
+client = key.DB_CLIENT
 
 client_migration = MongoClient(client)
 db = client_migration["Gym"] #collection
@@ -10,6 +10,10 @@ descuentos = db["descuentos"] #document
 planes = db["planes"] #document
 socios = db["socios"] #document
 
+# vigencia_socio = datetime.now() + timedelta(days=30)
+vigencia_socio = datetime.now() + timedelta(minutes=2)
+
+print('seeding data')
 
 planes_list = [
     {
@@ -63,7 +67,7 @@ socios_list = [
                 "counter": 0
             }
         ],
-        "vigencia": datetime.now() + timedelta(days=30),
+        "vigencia": vigencia_socio,
         "active": True
     },
     {
@@ -75,16 +79,18 @@ socios_list = [
                 "counter": 0
             }
         ],
-        "vigencia": datetime.now() + timedelta(days=30),
+        "vigencia": vigencia_socio,
         "active": True
     },
     {
         "_id": 3,
         "plan_id": 3,
         "descuentos": "null",
-        "vigencia": datetime.now() + timedelta(days=30),
+        "vigencia": vigencia_socio,
         "active": True
     }
 ]
 
 socios.insert_many(socios_list)
+
+print('finish seeding')
