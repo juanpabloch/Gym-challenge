@@ -1,6 +1,5 @@
 # Challenge GYM
 
----
 
 Se debe crear un proceso de cobros recurrentes para una cadena de gimnasios que posee
 varios socios, y varios planes de suscripción con precios diferentes. El proceso identifica los
@@ -37,7 +36,6 @@ debemos crear un archivo key.py el cual debe contener:
 
 ## Comenzar App
 
----
 para comenzar ejecutamos en la consola:
 ```bash
 >> python main.py 
