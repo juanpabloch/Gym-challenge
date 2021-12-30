@@ -23,16 +23,17 @@ pip install schedule
 ```
 Ejecuta funciones de Python (o cualquier otra funcion) periódicamente. Se utiliza para ejecutar el codigo principal. [Schedule](https://schedule.readthedocs.io/en/stable/)
 
-### Seeders:
-Podemos cargar la nuestra base de datos con el comando:
-```bash
->> python seeder.py 
-```
 
 ### Key file:
 debemos crear un archivo key.py el cual debe contener:
 * DB_PASSWORD = corresponde a la password de nuestra base de datos
 * DB_CLIENT = es la direccion de la base de datos o connection string
+
+### Seeders:
+Podemos cargar la nuestra base de datos con el comando:
+```bash
+>> python seeder.py 
+```
 
 ## Comenzar App
 
@@ -52,3 +53,5 @@ Para recetear al socio o simular un pago podemos correr el archivo:
 Gracias!
 
 _creado por:_  **Choternasty Juan Pablo**
+
+ <a href="https://www.linkedin.com/in/juanpablochoternasty/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a>
