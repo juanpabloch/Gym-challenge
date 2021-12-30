@@ -5,7 +5,6 @@ from datetime import datetime
 
 
 def is_socio_vigente(socio):
-    print(socio["vigencia"] < datetime.now())
     if socio["vigencia"] < datetime.now():
         deactivate_socio(socio['_id'])
         return False

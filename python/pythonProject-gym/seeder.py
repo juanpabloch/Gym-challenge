@@ -10,8 +10,8 @@ descuentos = db["descuentos"] #document
 planes = db["planes"] #document
 socios = db["socios"] #document
 
-# vigencia_socio = datetime.now() + timedelta(days=30)
-vigencia_socio = datetime.now() + timedelta(minutes=2)
+vigencia_socio = datetime.now() + timedelta(days=30)
+# vigencia_socio = datetime.now() + timedelta(days=2)
 
 print('seeding data')
 
